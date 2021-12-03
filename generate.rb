@@ -8,3 +8,4 @@ File.open(path + "/Dockerfile", "w") do |df|
 end
 puts "#{path}/"
 puts f.gsub("/", "_").gsub(":","-").gsub("@", "-")
+puts "registry.cn-qingdao.aliyuncs.com/bill-xing/common:" + f.gsub("/", "_").gsub(":","-").gsub("@", "-")
