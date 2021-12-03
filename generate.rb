@@ -1,8 +1,10 @@
 #!/usr/bin/env ruby
 f = ARGV[0]
 raise 'empty image' if f.nil? || f.empty?
-exit 1 if !system("mkdir -p #{f}")
-File.open(f + "/Dockerfile", "w") do |df|
+path = f.gsub(":", "/")
+exit 1 if !system("mkdir -p #{path}")
+File.open(path + "/Dockerfile", "w") do |df|
   df.write("FROM #{f}")
 end
-puts "#{f}/Dockerfile"
+puts "#{path}/"
+puts f.gsub("/", "_").gsub(":","-")
